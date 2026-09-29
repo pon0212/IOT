@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Sứa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 48, "left": 177.64, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -28.5, "left": 33, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 98.4,
+      "left": -27,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v9.6", "h134.25" ] ],
+    [ "dht1:SDA", "esp:23", "green", [ "v19.2", "h240.1", "v-19.2" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:GND.1", "bz1:1", "black", [ "v19.2", "h-182.25" ] ],
+    [ "esp:15", "bz1:2", "green", [ "h19.2", "v9.6", "h-287.6" ] ]
+  ],
+  "dependencies": {}
+}
